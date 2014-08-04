@@ -17,7 +17,7 @@ int APIENTRY DllMain(HMODULE hModule,
 	switch (ul_reason_for_call)
 	{
 	case DLL_PROCESS_ATTACH:
-		// Logging
+		// Logging.
 		LogMessage("DLL loaded into process %i.", PID);
 
 		// Proxy DLL?
@@ -33,7 +33,16 @@ int APIENTRY DllMain(HMODULE hModule,
 			s = lua_pcall(lua_state, 0, LUA_MULTRET, 0);
 		}
 		if (s != 0) {
-			LogMessage(PIDVD "Lua error: %s", PID, luaL_checkstring(lua_state, 1));
+			char err[50];
+			switch (s) {
+			case LUA_ERRSYNTAX: strcpy_s(err, "Syntax error"); break;
+			case LUA_ERRRUN: strcpy_s(err, "Runtime error"); break;
+			case LUA_ERRMEM: strcpy_s(err, "Memory allocation error"); break;
+			case LUA_ERRERR: strcpy_s(err, "Error while running the message handler"); break;
+			case LUA_ERRGCMM: strcpy_s(err, "Error while running a __gc metamethod"); break;
+			}
+			LogMessage(PIDVD "Lua error: %s", PID, err);
+			if(lua_gettop(lua_state) > 0) LogMessage(PIDVD "Error message: %s", PID, lua_tostring(lua_state, -1));
 		}
 		break;
 
