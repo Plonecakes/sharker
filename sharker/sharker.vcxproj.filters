@@ -16,6 +16,9 @@
     <Filter Include="Lua source">
       <UniqueIdentifier>{008c0b08-aeb7-4eee-93bd-60e00609538a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="lib">
+      <UniqueIdentifier>{d592c721-0843-4595-ba4e-6c06a0687f98}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Lua\lapi.c">
@@ -123,6 +126,9 @@
     <ClCompile Include="api.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\shared\CDataFile.cpp">
+      <Filter>lib</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Lua\lapi.h">
@@ -217,6 +223,9 @@
     </ClInclude>
     <ClInclude Include="lua.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\CDataFile.h">
+      <Filter>lib</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -40,7 +40,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>..\Lua;$(IncludePath);$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>..\Lua;..\shared;$(IncludePath);$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -99,6 +99,7 @@
     <ClCompile Include="..\Lua\lundump.c" />
     <ClCompile Include="..\Lua\lvm.c" />
     <ClCompile Include="..\Lua\lzio.c" />
+    <ClCompile Include="..\shared\CDataFile.cpp" />
     <ClCompile Include="api.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="logging.cpp" />
@@ -129,6 +130,7 @@
     <ClInclude Include="..\Lua\lundump.h" />
     <ClInclude Include="..\Lua\lvm.h" />
     <ClInclude Include="..\Lua\lzio.h" />
+    <ClInclude Include="..\shared\CDataFile.h" />
     <ClInclude Include="api.h" />
     <ClInclude Include="logging.h" />
     <ClInclude Include="lua.h" />
